@@ -1,0 +1,4 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://deslogic01.aduana.gob.bo:7001/wsfmismodbnk/wsfmismodbnk?WSDL#%7Bhttp%3A%2F%2Fweb%2F%7Dwsfmismodbnk"
+          uri="../web/wsfmismodbnk.wsdl"/>
+</catalog>

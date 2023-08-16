@@ -1,0 +1,79 @@
+/* First image (Logo. Full height) */
+.bgimg-1_a {
+    background-image: url('/img/parallax1.jpg');
+    min-height: 100%;
+}
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("/img/parallax1.jpg");
+    min-height: 400px;
+}
+
+.w3-black, .w3-hover-black:hover {
+    color: #fff !important;
+    /*background-color: #000 !important;*/
+    background: radial-gradient(ellipse at center, #28455D 20%, #1f3649 100%) !important;
+    
+}
+
+.w3-hover-text-green{
+    text-decoration: none;
+}
+.w3-white, .w3-hover-white:hover {
+    color: #000 !important;
+    /*background-color: #fff !important;*/
+    /*background: radial-gradient(ellipse at center, #28455D 20%, #1f3649 100%) !important;*/
+}
+.w3-bar-item.w3-button {
+    color: white;
+}
+
+.w3-wide{letter-spacing:2px!important;}
+
+/**logo**/
+.logo {
+background: transparent  no-repeat; height: 107px; width: 100%; position: relative;
+*background: radial-gradient(ellipse at center, #28455D 20%, #1f3649 100%) !important;
+ height: 107px; width: 100%; position: relative;
+ /*opacity: 0.75;*/
+}
+.logo:before {
+    background: transparent url(../img/anb.png) no-repeat; 
+    content: ""; 
+    position: absolute; display: block; right: 0; top: 0; width: 122px; height: 70px;
+}
+
+.bgimg-3.w3-display-container:hover{
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+    background-color:Black;
+    color:white;
+    opacity:1;
+}
+
+.navbar-default .btn-banner.active, .navbar-default .btn-banner.active:focus {
+    /*color: #4a89dc;*/
+    color: #000;
+}
+.logo h1 {display: none;}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+/*.w3-padding-64 {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}*/
+.foot{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

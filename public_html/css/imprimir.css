@@ -1,0 +1,24 @@
+@media print {
+    body {
+        background: #fff !important;
+    }
+    header {
+        box-shadow: none;
+        background: #fff !important;
+    }
+    .navigation, .footer, .panel-heading, .fecha_solicitud, .nit_importador, .email, .direccion, .timbrado_origen, .lugar_timbrado, .nuevo_item, .opcion, .saldo_enviar, .saldo_siponible, .table-pendientes, .table-entregados, .timbres_enviados, .imprimir {
+        display: none !important;
+    }
+    .titulo_tcf, .firma {
+        display: none !important;
+        display: block !important;
+    }
+    /* For mobile phones: */
+[    class*="col-md"] {
+        width: 100% !important;
+    }    
+    #sidebar.collapsed + .container-fluid, header.collapsed, footer.collapsed {transform:translate3d(0px, 0px, 0px); -ms-transform:translate3d(0px, 0px, 0px); -webkit-transform:translate3d(0px, 0px, 0px); -moz-transition: translate3d(0px, 0px, 0px); -o-transition: translate3d(0px, 0px, 0px)}    
+    #container > .container-fluid {
+        padding: 100px 50px 20px 50px;
+    }
+}

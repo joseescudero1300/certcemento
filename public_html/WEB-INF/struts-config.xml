@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="ConsultaForm" type="bo.gob.aduana.consulta.ConsultaForm"/>  
+        <form-bean name="UsuarioForm" type="bo.gob.aduana.bean.UsuarioForm"/> 
+        <form-bean name="AuthForm" type="bo.gob.aduana.system.AuthForm"/>
+        <form-bean name="ConsultaCerForm" type="bo.gob.aduana.bean.ConsultaCerForm"/>
+    </form-beans>
+    <global-forwards>    
+        <forward name="dashboard" path="dashboard.index"/>
+        <forward name="index" path="usuario.login"/>
+        <forward name="index2" path="tecnico.login"/>
+    </global-forwards>
+    <action-mappings>      
+    <!-- Dashboard -->
+        <action path="/dashboard" type="bo.gob.aduana.DashboardAction" parameter="index" scope="request"
+                name="DashboardForm">
+            <forward name="ok" path="dashboard.index"/>
+            <forward name="refrescar" path="/dashboard.do" redirect="true"/>
+        </action>
+        <action path="/dashboardOption" type="bo.gob.aduana.DashboardAction" parameter="option" scope="request">
+            <forward name="dashboard.option" path="/views/dashboard/option.jsp"/>
+        </action>
+        
+        <action path="/index" type="bo.gob.aduana.system.AuthAction" name="AuthForm" scope="request" parameter="index"
+                validate="false">
+            <forward name="publico.principal" path="publico.principal"/>
+        </action>
+        <action path="/consultaAdeudo" type="bo.gob.aduana.consulta.ConsultaAction" name="ConsultaForm" scope="request" parameter="index">               
+           <forward name="solicitud.certificado" path="sol.certificado"/>  
+           <forward name="publico.principal" path="publico.principal"/>
+           <forward name="publico.deuda" path="sol.deuda"/>
+           <forward name="solicitud.certificadonodata" path="sol.certificadonodata"/>
+        </action>
+        <action path="/solicitud" type="bo.gob.aduana.web.SolicitudCertificacionAction" name="UsuarioForm" scope="request">
+           <forward name="consulta.index" path="publico.principal"/>                
+           <forward name="solicitud.certificado" path="sol.certificado"/>
+           <forward name="solicitud.certificadonodata" path="sol.certificadonodata"/>
+           
+        </action>
+        <action path="/miscelaneo" type="bo.gob.aduana.consulta.MiscelaneoAction" name="UsuarioForm" scope="request" parameter="index">
+           <forward name="consulta.index" path="publico.principal"/>                
+           <forward name="solicitud.certificado" path="sol.certificado"/>  
+        </action>
+        <action path="/tecnico" type="bo.gob.aduana.tecnico.LoginAction" name="AuthForm" scope="request" parameter="index"
+                validate="false"></action>
+        <action path="/login_tecnico" type="bo.gob.aduana.tecnico.LoginAction" name="AuthForm" scope="request" parameter="login"
+                input="/index.do">
+            <forward name="index" path="/tecnico.do"/>
+            <forward name="dashboard.index" path="/dashboard.do" redirect="true"/>
+        </action>
+       <action path="/logout" type="bo.gob.aduana.tecnico.LoginAction" parameter="logout" scope="request">
+            <forward name="index" path="/tecnico.do" redirect="true"/>
+        </action>
+        <action path="/CertificadoAdeudo" type="bo.gob.aduana.archivo.CertificadoAdeudo" scope="request"/>
+        <action path="/VerificacionCert" type="bo.gob.aduana.archivo.VerificacionCert" scope="request"/>
+        <action path="/tec_busca_cer" type="bo.gob.aduana.tecnico.tec_consultaAction" parameter="inicio" scope="request"
+                name="ConsultaCerForm">
+            <forward name="ok" path="tec.consulta.cer"/>
+        </action>
+         <action path="/Ayuda" type="bo.gob.aduana.archivo.Ayuda" scope="request"/>
+    </action-mappings>
+    <controller nocache="true" processorClass="bo.gob.aduana.system.AnbRequestProcessor"/>
+    <message-resources parameter="bo.gob.aduana.system.config"/>
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property value="/WEB-INF/tiles-defs.xml" property="definitions-config"/>
+        <set-property value="2" property="definitions-debug"/>
+        <set-property value="1" property="definitions-parser-details"/>
+        <set-property value="true" property="definitions-parse-validate"/>
+    </plug-in>
+</struts-config>
+

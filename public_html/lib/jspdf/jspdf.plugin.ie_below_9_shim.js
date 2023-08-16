@@ -1,0 +1,1 @@
+!function(t){"use strict";t.output=function(t,u){return this.internal.output(t,u)}}(jsPDF.API);

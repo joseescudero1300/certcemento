@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://web/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://web/" name="wsfmismodbnk">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://web/" schemaLocation="wsfmismodbnk1.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="registroFormMiscelaneo">
+    <part name="parameters" element="tns:registroFormMiscelaneo"/>
+  </message>
+  <message name="registroFormMiscelaneoResponse">
+    <part name="parameters" element="tns:registroFormMiscelaneoResponse"/>
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception"/>
+  </message>
+  <portType name="Consulta">
+    <operation name="registroFormMiscelaneo">
+      <input message="tns:registroFormMiscelaneo"/>
+      <output message="tns:registroFormMiscelaneoResponse"/>
+      <fault message="tns:Exception" name="Exception"/>
+    </operation>
+  </portType>
+  <binding name="wsfmismodbnkBinding" type="tns:Consulta">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="registroFormMiscelaneo">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="wsfmismodbnk">
+    <port name="wsfmismodbnk" binding="tns:wsfmismodbnkBinding">
+      <soap:address location="http://deslogic01.aduana.gob.bo:7001/wsfmismodbnk/wsfmismodbnk"/>
+    </port>
+  </service>
+</definitions>

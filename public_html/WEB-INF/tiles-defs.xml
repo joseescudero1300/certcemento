@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+"http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<!--
+This is a blank Tiles definition file with a commented example.
+-->
+<tiles-definitions>    
+
+    <!-- General -->
+    <definition name="layout" path="/layout/layout.jsp">
+        <put name="title" value="TCF"/>
+        <put name="header" value="/layout/header.jsp"/>
+        <put name="content" value="/layout/blank.jsp"/>
+        <put name="navmain" value="/layout/blank.jsp"/>
+        <put name="footer" value="/layout/footer.jsp"/>
+        <put name="access" value="/layout/access.jsp"/>
+    </definition>
+    
+    <definition name="full.layout" path="/layout/full_layout.jsp">
+        <put name="title" value="TCF"/>
+        <put name="header" value="/layout/header.jsp"/>
+        <put name="content" value="/layout/blank.jsp"/>
+        <put name="footer" value="/layout/footer.jsp"/>
+        <put name="access" value="/layout/access.jsp"/>
+    </definition>
+
+    <definition name="layout.login" path="/layout/login.jsp">
+        <put name="title" value="TCF"/>
+        <put name="header" value="/layout/header.jsp"/>
+        <put name="footer" value="/layout/footer.jsp"/>
+    </definition>
+
+    <definition name="layout.main" extends="layout">
+        <put name="navmain" value="/layout/navMain.jsp"/>
+    </definition>
+    
+     <definition name="publico.principal" extends="full.layout">
+        <put name="content" value="/views/publico/ade_principal.jsp"/>
+    </definition>
+    
+    <definition name="sol.certificado" extends="full.layout">
+        <put name="content" value="/views/publico/ade_formCertificacion.jsp"/>
+    </definition>
+    <definition name="sol.certificadonodata" extends="full.layout">
+        <put name="content" value="/views/Registro/SolicitudCertificacion.jsp"/>
+    </definition>
+    
+    <definition name="sol.deuda" extends="full.layout">
+        <put name="content" value="/views/publico/ade_Deuda.jsp"/>
+    </definition>
+    
+    <!-- Dashboard -->
+    <definition name="dashboard.index" extends="layout.main">
+        <put name="content" value="/views/dashboard/index.jsp"/>
+    </definition>
+      <definition name="tecnico.login" extends="layout.login">
+        <put name="content" value="/views/tecnico/login.jsp"/>
+    </definition>
+    
+    <definition name="tec.consulta.cer" extends="layout.main">
+        <put name="content" value="/views/tecnico/tec_consulta.jsp"/>
+    </definition>
+   
+</tiles-definitions>

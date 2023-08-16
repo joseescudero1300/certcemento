@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:tns="http://web/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://web/">
+  <xs:element name="Exception" type="tns:Exception"/>
+  <xs:element name="registroFormMiscelaneo" type="tns:registroFormMiscelaneo"/>
+  <xs:element name="registroFormMiscelaneoResponse" type="tns:registroFormMiscelaneoResponse"/>
+  <xs:complexType name="registroFormMiscelaneo">
+    <xs:sequence>
+      <xs:element name="identificador" type="xs:string" minOccurs="0"/>
+      <xs:element name="cadenaXML" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registroFormMiscelaneoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
